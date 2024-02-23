@@ -2023,6 +2023,22 @@ class OSXProfile:
     ]
 
 
+class ProxmoxProfile:
+    MINIMAL = [
+        Etc,
+        Boot,
+        Home,
+        SSH,
+        Var,
+    ]
+    DEFAULT = MINIMAL
+    FULL = [
+        *DEFAULT,
+        History,
+        WebHosting,
+    ]
+
+
 PROFILES = {
     "full": {
         "windows": WindowsProfile.FULL,
@@ -2030,6 +2046,7 @@ PROFILES = {
         "bsd": BsdProfile.FULL,
         "esxi": ESXiProfile.FULL,
         "osx": OSXProfile.FULL,
+        "proxmox": ProxmoxProfile.FULL,
     },
     "default": {
         "windows": WindowsProfile.DEFAULT,
@@ -2037,6 +2054,7 @@ PROFILES = {
         "bsd": BsdProfile.DEFAULT,
         "esxi": ESXiProfile.DEFAULT,
         "osx": OSXProfile.DEFAULT,
+        "proxmox": ProxmoxProfile.DEFAULT,
     },
     "minimal": {
         "windows": WindowsProfile.MINIMAL,
@@ -2044,6 +2062,7 @@ PROFILES = {
         "bsd": BsdProfile.MINIMAL,
         "esxi": ESXiProfile.MINIMAL,
         "osx": OSXProfile.MINIMAL,
+        "proxmox": ProxmoxProfile.MINIMAL,
     },
     "none": None,
 }
@@ -2071,6 +2090,7 @@ VOLATILE = {
         "bsd": [],
         "esxi": [],
         "osx": [],
+        "proxmox": [],
     },
     "extensive": {
         "windows": VolatileProfile.DEFAULT,
@@ -2078,6 +2098,7 @@ VOLATILE = {
         "bsd": VolatileProfile.EXTENSIVE,
         "esxi": VolatileProfile.EXTENSIVE,
         "osx": [],
+        "proxmox": VolatileProfile.EXTENSIVE,
     },
     "none": None,
 }
