@@ -1287,6 +1287,8 @@ class Boot(Module):
         ("glob", "/boot/grub*"),
         ("glob", "/boot/init*"),
         ("glob", "/boot/system*"),
+        # Proxmox specific file
+        ("glob", "/boot/pve*"),
     ]
 
 
@@ -1369,6 +1371,10 @@ class Var(Module):
         ("dir", "/var/audit"),
         ("dir", "/var/cron"),
         ("dir", "/var/run"),
+        # Proxmox specific files
+        ("dir", "/var/lib/pve-cluster"),
+        ("dir", "/var/lib/pve-firewall"),
+        ("dir", "/var/lib/pve-manager"),
         # some OS-X specific files
         ("dir", "/private/var/at"),
         ("dir", "/private/var/db/diagnostics"),
@@ -2098,7 +2104,7 @@ VOLATILE = {
         "bsd": VolatileProfile.EXTENSIVE,
         "esxi": VolatileProfile.EXTENSIVE,
         "osx": [],
-        "proxmox": VolatileProfile.EXTENSIVE,
+        "proxmox": [],
     },
     "none": None,
 }
